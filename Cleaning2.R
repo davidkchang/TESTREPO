@@ -5,6 +5,11 @@ setwd(filepath)
 #load the file in
 filename<-"Panel_8595.csv"
 Dataset<-read.csv(filename)
+##Determinging the variables through the mean
+Panel_0_87<-subset(Dataset, X.1==87)
+Panel_0_95<-subset(Dataset, X.1==95)
+summary(Panel_0_87)
+summary(Panel_0_95)
 # Renaming the variables
 colnames(Dataset)[colnames(Dataset)=="QQ.kt.t.v."] <- "Plant_I.D."
 
@@ -70,7 +75,7 @@ View(tidy2a_1)
 tidy2a_0<-(Reduce(function(x, y) merge(x, y, all=TRUE), list(tidy2a_1, tidy2a_2, tidy2a_3,tidy2a_4,tidy2a_5,tidy2a_6,tidy2a_7,tidy2a_8,tidy2a_9)))
 View(tidy2a_0)
 #Creating the tidy2a.txt file
-write.table(tidy2a_0,"/Users/KevinChang/Desktop/tidy2a.txt")
+write.table(tidy2a_0,"/Users/KevinChang/Desktop/tidy2_a.txt")
 ##############################################################################################################################
 ##tidy2b.txt
 ##Create another data set called tidy2_b.txt that aggregated (adds) all variables within a particular year across all 92 plants so that the tidy data set has 11 rows of observations for all of the relevant variables.
@@ -89,7 +94,7 @@ View(tidy2b_1)
 tidy2b_0<-(Reduce(function(x, y) merge(x, y, all=TRUE), list(tidy2b_1, tidy2b_2, tidy2b_3,tidy2b_4,tidy2b_5,tidy2b_6,tidy2b_7,tidy2b_8,tidy2b_9)))
 View(tidy2b_0)
 #Creating the tidy2a.txt file
-write.table(tidy2b_0,"/Users/KevinChang/Desktop/tidy2b.txt")
+write.table(tidy2b_0,"/Users/KevinChang/Desktop/tidy2_b.txt")
 
 
 
